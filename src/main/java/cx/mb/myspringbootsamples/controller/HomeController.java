@@ -1,4 +1,4 @@
-package cx.mb.myspringbootsamples;
+package cx.mb.myspringbootsamples.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

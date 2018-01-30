@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <title>Thymeleafを使ったページのJavaScript部にJSON配列でデータを渡す</title>
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+        $(function () {
+            var ctx = $("#chart");
+            var myChart = new Chart(ctx, {
+                type: 'radar',
+                options: {
+                    scale: {
+                        //ticks: {
+                        //    min: 0,
+                        //    max: 6,
+                        //    step: 1
+                        //},
+                        pointLabels: {
+                            fontSize: 15
+                        }
+                    },
+                    legend: {
+                        display: false
+                    }
+                },
+                data: {
+                    labels: /*[[${params}]]*/ [],
+                    datasets: [{
+                        label: "値",
+                        backgroundColor: "rgba(255,153,0,0.4)",
+                        borderColor: "rgba(255,153,0,1)",
+                        data: /*[[${values}]]*/ []
+                    }]
+                }
+            });
+        });
+        /*]]>*/
+    </script>
+</head>
+<body>
+Thymeleafを使ったページのJavaScript部にJSON配列でデータを渡す<br/>
+<canvas id="chart" style="max-width: 320px; margin:0 auto"></canvas>
+</body>
+</html>
